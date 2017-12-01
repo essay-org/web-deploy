@@ -22,7 +22,77 @@
 
 为了更好地说明部署细节，以我的开源项目vueblog的服务端部分作为演示，vueblog-server是一个由nodejs开发的api服务
 
-在本地执行
+在本地项目目录下执行`pm2 ecosystem`，然后会在根目录下生成一个`ecosystem.config.js`文件
 
+```json
+module.exports = {
+  /**
+   * Application configuration section
+   * http://pm2.keymetrics.io/docs/usage/application-declaration/
+   */
+  apps : [
 
+    // First application
+    {
+      // 项目名称
+      name      : 'vueblog-server',
+      // 入口文件
+      script    : 'server.js',
+      env: {
+        COMMON_VARIABLE: 'true'
+      },
+      env_production : {
+        NODE_ENV: 'production'
+      }
+    }
+  ],
+
+  /**
+   * Deployment section
+   * http://pm2.keymetrics.io/docs/usage/deployment/
+   */
+  deploy : {
+    // 生产环境
+    production : {
+      // 服务器用户名
+      user : 'root',
+      // 服务器IP
+      host : '198.13.32.165',
+      ref  : 'origin/master',
+      // github上项目的地址
+      repo : 'git@github.com:wmui/vueblog-server.git',
+      path : '/www',
+      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
+    },
+    // 开发环境
+    dev : {
+      user : 'root',
+      host : '198.13.32.165',
+      ref  : 'origin/master',
+      repo : 'git@github.com:wmui/vueblog-server.git',
+      path : '/www',
+      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env dev',
+      env  : {
+        NODE_ENV: 'dev'
+      }
+    }
+  }
+};
+
+```
+
+以上有注释的部分，你要根据你自己的项目进行修改，完成修改后，提交到github
+
+第一次你先要在你的服务器上clone你的项目，我克隆到了/www目录下，服务端执行`pm2 deploy ecosystem.config.js production setup`初始化项目
+
+紧接着重点来了，打开你的root目录下的.baserc文件，把最底部的以下两行代码移动到最上面，这应该是一个坑
+
+```
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+```
+
+然后在笨的git bash中测试以下，你修改一些东西，提交到github，执行`pm2 deploy ecosystem.config.js production`你会看到你下内容，恭喜成功，服务端会自动执行安装启动等操作
+
+![](/assets/1.png)
 
