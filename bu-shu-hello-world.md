@@ -30,11 +30,11 @@ pm2的几个常用命令：
 
 #### 启动服务
 
-执行pm2 start hello你的服务就跑起来了，此时地址栏输入http://198.10.10.100:8081（你自己的服务器IP）就会看到hello world
+执行pm2 start hello你的服务就跑起来了，此时地址栏输入[http://198.10.10.100:8081（你自己的服务器IP）就会看到hello](http://198.10.10.100:8081（你自己的服务器IP）就会看到hello) world
 
 执行pm2 list回看到详细信息
 
 ![](/assets/2017-12-01_174154.png)
 
-
+在Nginx的安装配置一节会讲述如何配置域名，输入http://hello.example.com看到hello world
 
