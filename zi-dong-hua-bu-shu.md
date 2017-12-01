@@ -78,7 +78,6 @@ module.exports = {
     }
   }
 };
-
 ```
 
 以上有注释的部分，你要根据你自己的项目进行修改，完成修改后，提交到github
@@ -92,7 +91,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 ```
 
-然后在笨的git bash中测试以下，你修改一些东西，提交到github，执行`pm2 deploy ecosystem.config.js production`你会看到你下内容，恭喜成功，服务端会自动执行安装启动等操作
+然后在本的git bash中测试，修改一些东西，提交到github，执行`pm2 deploy ecosystem.config.js production`你会看到你下内容，恭喜成功，服务端会自动执行安装启动等操作
 
 ![](/assets/1.png)
 
