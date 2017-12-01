@@ -4,7 +4,7 @@
 
 #### 远程连接工具
 
-推荐[http://mobaxterm.mobatek.net/](http://mobaxterm.mobatek.net/)，它可以在线编辑你的文件，自带ftp功能，可拖拽上传下载，简单好用
+推荐[mobaxterm](http://mobaxterm.mobatek.net/)，它可以在线编辑你的文件，自带ftp功能，可拖拽上传下载，简单好用
 
 ![](/assets/2017-12-01_172321.png)
 

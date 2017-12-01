@@ -1,6 +1,6 @@
 #### 安装
 
-官方文档[https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
+[官方文档](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
 
 按照官方文档ubuntu版本号安装，按顺序执行以下命令：
 
