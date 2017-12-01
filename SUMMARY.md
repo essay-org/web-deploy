@@ -6,4 +6,5 @@
 * [Nginx安装配置](xiang-mu-bu-shu.md)
 * [MongoDB的安装使用](mongodbde-an-zhuang-shi-yong.md)
 * [自动化部署](zi-dong-hua-bu-shu.md)
+* [HTTPS部署](httpsbu-shu.md)
 
