@@ -4,4 +4,5 @@
 * [Node环境配置](ruan-jian-an-zhuang.md)
 * [部署Hello World](bu-shu-hello-world.md)
 * [Nginx安装配置](xiang-mu-bu-shu.md)
+* [MongoDB的安装使用](mongodbde-an-zhuang-shi-yong.md)
 
