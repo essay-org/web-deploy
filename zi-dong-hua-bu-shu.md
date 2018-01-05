@@ -14,9 +14,16 @@
 
 同样在github添加你的服务器密钥
 
-在服务端执行`echo "[your public key]" > ~/.ssh/authorized_keys`该命令会将本机的公钥拷贝到服务器的authorized\_keys文件，可打开root/.ssh/authorized\_keys，查看是否拷贝成功
+完成以上操作后在服务端执行`echo "[your public key]" > ~/.ssh/authorized_keys`该命令会将本机的公钥拷贝到服务器的authorized\_keys文件，可打开root/.ssh/authorized\_keys，查看是否拷贝成功
 
-完成以上操作你的本机就和服务器建立的联系，无需密码就可以操作服务器了
+#### 设置文件和目录权限
+
+设置authorized\_keys权限 
+$ chmod 600 authorized\_keys 
+设置.ssh目录权限 
+$ chmod 700 -R .ssh
+
+完成以上操作你的本机就和服务器建立的联系，无需密码就可以操作服务器了，这个权限设置很重要
 
 #### 项目部署
 
@@ -24,7 +31,7 @@
 
 在本地项目目录下执行`pm2 ecosystem`，然后会在根目录下生成一个`ecosystem.config.js`文件
 
-```json
+```js
 module.exports = {
   /**
    * Application configuration section
@@ -94,4 +101,6 @@ export NVM_DIR="$HOME/.nvm"
 然后在本地的git bash中测试，修改一些东西，提交到github，执行`pm2 deploy ecosystem.config.js production`你会看到你下内容，恭喜成功，服务端会自动执行安装启动等操作
 
 ![](/assets/1.png)
+
+[pm2](https://github.com/Unitech/pm2)有很多强大的功能，比如我们项目部署到线上后发现有问题，可以执行`pm2 deploy ecosystem.config.js revert 1`回滚到上一个版本，更多强大功能可查看官方文档
 
