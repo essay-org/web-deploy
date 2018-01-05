@@ -18,10 +18,9 @@
 
 #### 设置文件和目录权限
 
-设置authorized\_keys权限 
-$ chmod 600 authorized\_keys 
-设置.ssh目录权限 
-$ chmod 700 -R .ssh
+设置authorized\_keys权限:`$ chmod 600 authorized\_keys`
+
+设置.ssh目录权限:`$ chmod 700 -R .ssh`
 
 完成以上操作你的本机就和服务器建立的联系，无需密码就可以操作服务器了，这个权限设置很重要
 
