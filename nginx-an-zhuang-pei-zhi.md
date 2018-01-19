@@ -38,7 +38,7 @@ server {
 完成配置后，执行`sudo nginx -t`查看是否配置成功
 
 ![](/assets/2017-12-01_171923.png)
-
+`sudo service nginx start` 启动服务
 `sudo nginx -s reload`重启服务
 
 #### 域名解析
