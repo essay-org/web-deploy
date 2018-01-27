@@ -101,5 +101,5 @@ export NVM_DIR="$HOME/.nvm"
 
 ![](/assets/1.png)
 
-[pm2](https://github.com/Unitech/pm2)有很多强大的功能，比如我们项目部署到线上后发现有问题，可以执行`pm2 deploy ecosystem.config.js revert 1`回滚到上一个版本，更多强大功能可查看官方文档
+[pm2](https://github.com/Unitech/pm2)有很多强大的功能，比如我们项目部署到线上后发现有问题，可以执行`pm2 deploy ecosystem.config.js production revert 1`回滚到上一个版本，更多强大功能可查看官方文档
 
