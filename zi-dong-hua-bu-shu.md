@@ -18,7 +18,7 @@
 
 #### 设置文件和目录权限
 
-设置authorized\_keys权限:`$ chmod 600 authorized\_keys`
+设置authorized\_keys权限:`$ chmod 600 authorized_keys`
 
 设置.ssh目录权限:`$ chmod 700 -R .ssh`
 
@@ -26,67 +26,42 @@
 
 #### 项目部署
 
-为了更好地说明部署细节，以我的开源项目vueblog的服务端部分作为演示，vueblog-server是一个由nodejs开发的api服务
+为了更好地说明部署细节，以我的开源项目[VueBlog](https://github.com/wmui/vueblog)作为演示
 
 在本地项目目录下执行`pm2 ecosystem`，然后会在根目录下生成一个`ecosystem.config.js`文件
 
-```js
+```javascript
 module.exports = {
-  /**
-   * Application configuration section
-   * http://pm2.keymetrics.io/docs/usage/application-declaration/
-   */
-  apps : [
-
-    // First application
+  apps: [
     {
-      // 项目名称
-      name      : 'vueblog-server',
-      // 入口文件
-      script    : 'server.js',
+      name: 'vueblog',
+      script: 'build/main.js',
       env: {
         COMMON_VARIABLE: 'true'
       },
-      env_production : {
+      env_production: {
         NODE_ENV: 'production'
       }
     }
   ],
-
-  /**
-   * Deployment section
-   * http://pm2.keymetrics.io/docs/usage/deployment/
-   */
-  deploy : {
-    // 生产环境
-    production : {
-      // 服务器用户名
-      user : 'root',
-      // 服务器IP
-      host : '198.13.32.165',
-      ref  : 'origin/master',
-      // github上项目的地址
-      repo : 'git@github.com:wmui/vueblog-server.git',
-      path : '/www/vueblog-server',
-      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
-    },
-    // 开发环境
-    dev : {
-      user : 'root',
-      host : '198.13.32.165',
-      ref  : 'origin/master',
-      repo : 'git@github.com:wmui/vueblog-server.git',
-      path : '/www/vueblog-server',
-      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env dev',
-      env  : {
-        NODE_ENV: 'dev'
-      }
+  deploy: {
+    production: {
+      user: 'root',
+      // 服务器ip
+      host: '198.13.32.165',
+      // 分支
+      ref: 'origin/master', 
+      // 仓库地址
+      repo: 'git@github.com:wmui/vueblog.git',
+      path: '/www/vueblog',
+      'post-deploy': 'yarn && npm run build && pm2 reload ecosystem.config.js --env production'
     }
   }
-};
+}
+
 ```
 
-以上有注释的部分，你要根据你自己的项目进行修改，完成修改后，提交到github
+以上你要根据你自己的项目进行修改，完成修改后，提交到github
 
 第一次你先要在你的服务器上clone你的项目，我克隆到了/www目录下，cd到该目录，服务端执行`pm2 deploy ecosystem.config.js production setup`初始化项目
 
