@@ -12,7 +12,7 @@ res.end('hello world')
 console.log('server test')
 ```
 
-以上是一个最简单的node服务，服务输出hello world，我们要让它在服务器上跑起来，要用到pm2
+以上是一个最简单的node服务，服务输出hello world，我要让它在服务器上跑起来，最简单的方法执行`node hello.js`，但是关闭命令后服务就断了，要想不中断可用到pm2管理工具
 
 pm2的几个常用命令：
 
@@ -30,7 +30,7 @@ pm2的几个常用命令：
 
 #### 启动服务
 
-执行pm2 start hello你的服务就跑起来了，此时地址栏输入`http://198.10.10.100:8081`（你自己的服务器IP）就会看到hello world
+执行pm2 start hello.js你的服务就跑起来了，此时地址栏输入`http://198.10.10.100:8081`（你自己的服务器IP）就会看到hello world
 
 执行pm2 list回看到详细信息
 
