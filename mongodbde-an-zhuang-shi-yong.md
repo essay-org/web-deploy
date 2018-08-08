@@ -16,6 +16,24 @@
 
 完成以上操作，你的服务器已成功安装MongoDB
 
+补充一下CentOS的安装方法：
+
+[官方文档](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/)
+
+1. 创建仓库文件：/etc/yum.repos.d/mongodb-org-4.0.repo，内容如下
+
+```bash
+[mongodb-org-4.0]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc
+```
+
+2. `sudo yum install -y mongodb-org`
+3. `sudo service mongod start`
+
 #### 初始数据的备份和导入
 
 很多时候我们项目要上线，需要把本地的初始化数据导入到线上  
