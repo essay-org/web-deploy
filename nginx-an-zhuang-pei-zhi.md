@@ -38,8 +38,18 @@ server {
 完成配置后，执行`sudo nginx -t`查看是否配置成功
 
 ![](/assets/2017-12-01_171923.png)
+
 `sudo service nginx start` 启动服务
 `sudo nginx -s reload`重启服务
+
+如果启动失败，可能是防火墙导致的，关闭防火墙
+
+```
+//临时关闭
+service iptables stop
+//禁止开机启动
+chkconfig iptables off
+```
 
 #### 域名解析
 
