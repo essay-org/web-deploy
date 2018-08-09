@@ -8,7 +8,7 @@
 
 打开/etc/nginx/conf.d/文件夹，创建配置文件hello-8081.conf，内容如下：
 
-```json
+```bash
 # 这里是代理端口号 hello和8081根据你的情况配置
 upstream hello {
     server 127.0.0.1:8081;
